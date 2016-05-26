@@ -1,3 +1,5 @@
+var GRAPH = (function () {
+
 /**
  *
  * @author Igor Lishchuk
@@ -165,3 +167,4 @@ var coord = new Coord('/api/v1/points');
 });
 
 
+})();
