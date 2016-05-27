@@ -11,10 +11,10 @@ var graph = (function () {
 
     /**
      *
-     * Creates an instance of Canvas.
+     * Creates an instance of graph.Canvas.
      *
      * @constructor
-     * @this {Canvas}
+     * @this {graph.Canvas}
      * @param {String} id The id of the canvas
      * @param {Number} w The width of the canvas
      * @param {Number} h The height of the canvas
@@ -43,7 +43,7 @@ var graph = (function () {
         /**
          * Get the width of the canvas
          *
-         * @returns {Number} The width of the canvas
+         * @return {Number} The width of the canvas
          */
         this.getWidth = function () {
             return width;
@@ -52,7 +52,7 @@ var graph = (function () {
         /**
          * Get the height of the canvas
          *
-         * @returns {Number} The height of the canvas
+         * @return {Number} The height of the canvas
          */
         this.getHeight = function () {
             return height;
@@ -64,10 +64,10 @@ var graph = (function () {
 
     /**
      *
-     * Creates an instance of Brush.
+     * Creates an instance of graph.Brush.
      *
      * @constructor
-     * @this {Brush}
+     * @this {graph.Brush}
      * @param {Function} canvas The DOM element
      * @param {Function} width The width of the canvas
      * @param {Function} height The height of the canvas
@@ -119,10 +119,10 @@ var graph = (function () {
 
     /**
      *
-     * Creates an instance of Coord.
+     * Creates an instance of graph.Coord.
      *
      * @constructor
-     * @this {Coord}
+     * @this {graph.Coord}
      * @param url The url for ajax-request
      */
 
