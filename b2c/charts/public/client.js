@@ -73,9 +73,9 @@ var graph = (function () {
      * @param {Function} height The height of the canvas
      */
     graph.Brush = function (canvas, width, height) {
-        this.canvas = canvas;
-        this.width = width;
-        this.height = height;
+        this.canvas = canvas();
+        this.width = width();
+        this.height = height();
     };
 
     /**
@@ -95,6 +95,7 @@ var graph = (function () {
     /**
      * Draw a graph
      *
+     * @this {graph.Brush}
      * @param array Array with points
      */
     graph.Brush.prototype.draw = function (array) {
@@ -176,7 +177,7 @@ var graph = (function () {
      *
      * @type {Brush}
      */
-    var brush = new graph.Brush(canvas.getCanvas(), canvas.getWidth(), canvas.getHeight());
+    var brush = new graph.Brush(canvas.getCanvas, canvas.getWidth, canvas.getHeight);
 
     /**
      *
