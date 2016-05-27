@@ -5,7 +5,19 @@
  */
 
 
-var graph = (function () {
+(function () {
+
+
+    /**
+     *
+     * @type {{DEFAULTS: {CANVAS_WIDTH: number, CANVAS_HEIGHT: number}}}
+     */
+    var CONFIG = {
+        DEFAULTS: {
+            CANVAS_WIDTH : 900,
+            CANVAS_HEIGHT : 500
+        }
+    };
 
     var graph = {};
 
@@ -171,7 +183,7 @@ var graph = (function () {
      *
      * @type {Canvas}
      */
-    var canvas = new graph.Canvas('graph', 900, 500);
+    var canvas = new graph.Canvas('graph', CONFIG.DEFAULTS.CANVAS_WIDTH, CONFIG.DEFAULTS.CANVAS_HEIGHT);
 
     /**
      *
