@@ -116,6 +116,8 @@
         var axes = {}, ctx = this.canvas.getContext("2d");
         axes.y0 = .5 * this.height;
 
+        ctx.clearRect(0,0, this.width , this.height);
+
         ctx.beginPath();
         ctx.lineWidth = 1;
         ctx.strokeStyle = '#000';
@@ -195,14 +197,28 @@
      *
      * @type {Coord}
      */
+    var config = new graph.Coord('/api/v1/config');
+
+    /**
+     *
+     * @type {Coord}
+     */
     var coord = new graph.Coord('/api/v1/points');
 
     graph.init = function () {
-        (coord._getAjaxFunc())().then(function (response) {
-            brush.draw(response);
-        }, function (error) {
-            return console.log("Rejected: " + error);
-        });
+        var interval = (config._getAjaxFunc())()
+                            .then(function (response) {
+                                return response.POINTS.UPDATE_INTERVAL;
+                            });
+        
+        setInterval(function () {
+            (coord._getAjaxFunc())()
+                .then(function (response) {
+                    brush.draw(response);
+                }, function (error) {
+                    return console.log("Rejected: " + error);
+                })
+        }, interval);
     };
 
     graph.init();
